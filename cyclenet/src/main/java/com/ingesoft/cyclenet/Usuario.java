@@ -1,5 +1,10 @@
 package main.java.com.ingesoft.cyclenet;
 
+import java.util.ArrayList;
+
+import com.ingesoft.cyclenet.Comentario;
+
+
 public class Usuario {
     protected String Id;
     protected String nombre;
