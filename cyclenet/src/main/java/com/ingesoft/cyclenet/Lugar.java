@@ -1,4 +1,4 @@
-package main.java.com.ingesoft.cyclenet;
+package com.ingesoft.cyclenet;
 
 
 public class Lugar {
@@ -7,7 +7,6 @@ public class Lugar {
     protected Boolean foto;
     protected int puntuacion;
     protected String categoria;
-
 
 
 }

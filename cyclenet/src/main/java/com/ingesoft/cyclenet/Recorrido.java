@@ -1,4 +1,4 @@
-package main.java.com.ingesoft.cyclenet;
+package com.ingesoft.cyclenet;
 
 
 public class Recorrido {
@@ -7,4 +7,5 @@ public class Recorrido {
     protected int tiempoDeRecorrido;
 
     protected Mapa mapa;
+    protected Publicacion publicacion;
 }

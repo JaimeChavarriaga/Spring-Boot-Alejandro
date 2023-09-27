@@ -1,4 +1,4 @@
-package main.java.com.ingesoft.cyclenet;
+package com.ingesoft.cyclenet;
 
 public class ElementoInfo{
     protected String nombre;

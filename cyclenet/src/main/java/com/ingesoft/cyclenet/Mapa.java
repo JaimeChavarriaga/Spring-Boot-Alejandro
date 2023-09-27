@@ -1,4 +1,4 @@
-package main.java.com.ingesoft.cyclenet;
+package com.ingesoft.cyclenet;
 
 import java.util.ArrayList;
 
