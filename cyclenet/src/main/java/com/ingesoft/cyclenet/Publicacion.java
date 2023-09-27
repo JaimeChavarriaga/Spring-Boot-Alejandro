@@ -8,8 +8,12 @@ import java.util.ArrayList;
 public class Publicacion {
     protected String mensaje;
     protected Boolean foto;
+    protected Boolean lugar;
+
     protected Date fechaPublicacion;
-    protected Recorrido recorrido;
+
+
+    
     protected ArrayList<Comentario> comentarios;
 
     protected Usuario usuario;

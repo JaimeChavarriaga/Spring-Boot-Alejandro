@@ -16,15 +16,16 @@ import lombok.Setter;
 public class Usuario {
     
     @Id
-    protected String Id;
+    protected String identificacion;
     
     protected String nombre;
     protected String contraseña;
     protected String correo;
     protected String celular;
+
     protected ArrayList<Comentario> comentarios;
+    
     protected ArrayList<Publicacion> publicaciones;
-    protected ArrayList<Recorrido> recorridos;
 
 
 }
