@@ -11,6 +11,8 @@ import lombok.Setter;
 @Getter @Setter
 public class Comentario {
 
+    
+
     protected String mensaje;
     protected Date fecha;
     protected int likes;
