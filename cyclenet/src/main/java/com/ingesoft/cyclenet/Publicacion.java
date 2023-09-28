@@ -3,12 +3,14 @@ package com.ingesoft.cyclenet;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 
 
-public class Publicacion {
+ public class Publicacion {
     protected String mensaje;
     protected Boolean foto;
     protected Boolean lugar;
@@ -18,7 +20,12 @@ public class Publicacion {
 
     protected ArrayList<Comentario> comentarios;
 
+    @ManyToOne
     protected Usuario usuario;
+
+    @OneToMany(targetEntity = Calificacion.class, mappedBy = "publicacion")
+    protected ArrayList<Calificacion> calificaciones;
+
 
     // Constructor por defecto
     public Publicacion() {
@@ -31,4 +38,5 @@ public class Publicacion {
         this.lugar = lugar;
         this.fecha = fecha;
     }
+
 }

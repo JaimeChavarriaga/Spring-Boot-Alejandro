@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,14 @@ public class Usuario {
     protected String correo;
     protected String celular;
 
+    @OneToMany
     protected ArrayList<Comentario> comentarios;
     
+    @OneToMany
     protected ArrayList<Publicacion> publicaciones;
+
+    @OneToMany
+    protected ArrayList<Calificacion> calificaciones;
 
 
 }

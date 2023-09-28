@@ -22,7 +22,7 @@ public class Calificacion {
 
     protected int numCalificacion;
     
-    @ManyToOne(targetEntity = Publicacion.class,  fetch = FetchType.LAZY) // Poner nombre de la otra columna
+    @ManyToOne(targetEntity = Usuario.class,  fetch = FetchType.LAZY) // Poner nombre de la otra columna
     protected Usuario usuario;
 
     @ManyToOne(targetEntity = Publicacion.class, fetch = FetchType.LAZY)
