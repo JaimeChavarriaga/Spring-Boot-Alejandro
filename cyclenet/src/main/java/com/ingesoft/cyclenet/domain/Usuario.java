@@ -1,7 +1,6 @@
-package com.ingesoft.cyclenet;
+package com.ingesoft.cyclenet.domain;
 
 import java.util.ArrayList;
-
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Entity;
@@ -24,13 +23,13 @@ public class Usuario {
     protected String correo;
     protected String celular;
 
-    @OneToMany
+    @OneToMany(mappedBy = "usuario")
     protected ArrayList<Comentario> comentarios;
     
-    @OneToMany
+    @OneToMany(mappedBy = "usuario")
     protected ArrayList<Publicacion> publicaciones;
 
-    @OneToMany
+    @OneToMany(mappedBy = "usuario")
     protected ArrayList<Calificacion> calificaciones;
 
 

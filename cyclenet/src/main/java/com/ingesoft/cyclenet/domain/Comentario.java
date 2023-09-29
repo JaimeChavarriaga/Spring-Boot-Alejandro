@@ -1,4 +1,4 @@
-package com.ingesoft.cyclenet;
+package com.ingesoft.cyclenet.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,12 +22,10 @@ public class Comentario {
 
     @Id
     @GeneratedValue
-    protected String id;
+    protected Long id;
 
     protected String mensaje;
     protected Date fecha;
-    protected int likes;
-    protected int dislikes;
 
     @ManyToOne
     protected Publicacion publicacion;
@@ -35,7 +33,7 @@ public class Comentario {
     @ManyToOne
     protected Usuario usuario;
 
-    @OneToMany(targetEntity = Calificacion.class, mappedBy = "comentario")
+    @OneToMany(mappedBy = "comentario")
     protected ArrayList<Calificacion> calificaciones;
 
 }
