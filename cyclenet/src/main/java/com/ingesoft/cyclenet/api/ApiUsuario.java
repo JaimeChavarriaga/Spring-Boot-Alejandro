@@ -15,8 +15,7 @@ public class ApiUsuario
 
     @PostMapping("/api/usuarios")
     public void crearUsuario(String nombre){
-        casosDeUsoUsuarios.crearUsuario(nombre);
-
+        //casosDeUsoUsuarios.crearUsuario(nombre);
     }
 
     @GetMapping("/api/hola")

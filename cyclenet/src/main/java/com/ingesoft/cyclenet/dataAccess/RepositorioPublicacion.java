@@ -7,7 +7,7 @@ import com.ingesoft.cyclenet.domain.Publicacion;
 
 @Repository
 public interface RepositorioPublicacion 
-extends JpaRepository<Publicacion,Long>
+extends JpaRepository<Publicacion, Long>
 {
     
 }

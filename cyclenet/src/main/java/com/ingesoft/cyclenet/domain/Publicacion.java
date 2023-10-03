@@ -3,18 +3,28 @@ package com.ingesoft.cyclenet.domain;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JacksonInject.Value;
+
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
+@Getter @Setter
+@AllArgsConstructor @NoArgsConstructor
  public class Publicacion {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     protected String mensaje;
@@ -34,16 +44,16 @@ import jakarta.persistence.TemporalType;
     protected ArrayList<Calificacion> calificaciones;
 
 
-    // Constructor por defecto
-    public Publicacion() {
-    }
-
-    // Constructor con parámetros
-    public Publicacion(String mensaje, Boolean foto, Boolean lugar, Date fecha) {
+    // Constructor con parámetros sin ID
+    public Publicacion(String mensaje, Boolean foto, Boolean lugar, Date fecha, Usuario usuario) {
         this.mensaje = mensaje;
         this.foto = foto;
         this.lugar = lugar;
         this.fecha = fecha;
+        this.usuario = usuario;
+
+        this.calificaciones = new ArrayList<>();
+        this.comentarios = new ArrayList<>();
     }
 
 }
