@@ -25,6 +25,7 @@ public class Usuario {
     protected String contraseña;
     protected String correo;
     protected String celular;
+    protected boolean log = false;
 
     @OneToMany(mappedBy = "usuario")
     protected ArrayList<Comentario> comentarios;
@@ -35,16 +36,25 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     protected ArrayList<Calificacion> calificaciones;
 
+    @OneToMany(mappedBy = "usuario")
+    protected ArrayList<Usuario> seguidos;
+
+    @OneToMany(mappedBy = "usuario")
+    protected ArrayList<Usuario> seguidores;
+
     public Usuario(String nombreUsuario, String nombre, String contraseña, String correo, String celular){
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
         this.contraseña = contraseña;
         this.correo = correo;
         this.celular = celular;
+        this.log = true;
 
         this.calificaciones = new ArrayList<>();
         this.comentarios = new ArrayList<>();
         this.publicaciones = new ArrayList<>();
+        this.seguidos = new ArrayList<>();
+        this.seguidores = new ArrayList<>();
     }
 
 }

@@ -23,4 +23,10 @@ public class ApiUsuario
         return "holaMundo";
     }
     
+    @PostMapping("/api/seguir")
+    public void seguimientoUsuario(){
+        //Usuario usuarioActual = obtenerUsuarioActual(); // Obtener el usuario actual
+        //dejarDeSeguirUsuario( uActual, "xx");
+    }
+
 }

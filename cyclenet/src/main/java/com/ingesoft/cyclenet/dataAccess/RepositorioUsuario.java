@@ -9,5 +9,7 @@ import com.ingesoft.cyclenet.domain.Usuario;
 public interface RepositorioUsuario 
 extends JpaRepository<Usuario, String>
 {
+
+    Usuario getUsuarioLogeado();
     
 }
