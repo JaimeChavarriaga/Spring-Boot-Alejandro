@@ -10,6 +10,4 @@ public interface RepositorioCalificacion
 extends JpaRepository<Calificacion, Long>
 {
     
-
-
 }

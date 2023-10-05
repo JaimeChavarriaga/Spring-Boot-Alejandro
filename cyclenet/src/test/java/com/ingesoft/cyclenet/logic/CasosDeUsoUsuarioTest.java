@@ -13,6 +13,9 @@ public class CasosDeUsoUsuarioTest {
     @Autowired
     protected CasosDeUsoUsuarios casosDeUsoUsuarios;    
 
+    @Autowired
+    protected CasosDeUsoPublicacion casosDeUsoPublicacion;
+
     @Test
     public void pruebaLogin(){
         try {

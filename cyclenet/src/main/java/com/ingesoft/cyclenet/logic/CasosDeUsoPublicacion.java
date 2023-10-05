@@ -28,13 +28,12 @@ public class CasosDeUsoPublicacion {
             return;
         }
 
-        //Mostrar publicacion
-         //Mostrar texto, e imagen
+        //Retornar datos a mostrar
          return;
     }
 
     public void mostrarPublicacionLugar(Publicacion publicacion){
-        //Procedimiento para obtener y mostrar el lugar
+        //Retornar datos a mostrar
         return;
     }
     

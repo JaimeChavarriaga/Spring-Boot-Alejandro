@@ -1,5 +1,7 @@
 package com.ingesoft.cyclenet.domain;
 
+import org.hibernate.type.TrueFalseConverter;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,6 +21,10 @@ public class Calificacion {
     protected Long id;
 
     protected int numCalificacion;
+
+    protected Boolean esDePublicacion;
+
+    protected Boolean esDeComentario;
     
     @ManyToOne
     protected Usuario usuario;
@@ -29,4 +35,21 @@ public class Calificacion {
     @ManyToOne
     protected Comentario comentario;
     
+    public Calificacion(int numCalificacion, Usuario usuario, Publicacion publicacion){
+        this.numCalificacion = numCalificacion;
+        this.usuario = usuario;
+        this.esDePublicacion = true;
+        this.esDeComentario = false;
+        this.publicacion = publicacion;
+        this.comentario = null;
+    }
+
+    public Calificacion(int numCalificacion, Usuario usuario, Comentario comentario){
+        this.numCalificacion = numCalificacion;
+        this.usuario = usuario;
+        this.esDePublicacion = false;
+        this.esDeComentario = true;
+        this.publicacion = null;
+        this.comentario = comentario;
+    }
 }
