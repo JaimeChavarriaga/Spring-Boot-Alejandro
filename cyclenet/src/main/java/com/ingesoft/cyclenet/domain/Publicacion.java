@@ -3,8 +3,6 @@ package com.ingesoft.cyclenet.domain;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JacksonInject.Value;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

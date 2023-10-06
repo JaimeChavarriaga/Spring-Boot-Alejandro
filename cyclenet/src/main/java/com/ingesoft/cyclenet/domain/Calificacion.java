@@ -1,7 +1,5 @@
 package com.ingesoft.cyclenet.domain;
 
-import org.hibernate.type.TrueFalseConverter;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

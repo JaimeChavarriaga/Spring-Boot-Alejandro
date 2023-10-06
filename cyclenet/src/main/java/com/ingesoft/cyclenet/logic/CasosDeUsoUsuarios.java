@@ -3,6 +3,7 @@ package com.ingesoft.cyclenet.logic;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,19 +33,22 @@ public class CasosDeUsoUsuarios {
         return;
     }
 
-    public void crearUsuario(String nombreUsuario, String nombre, String contraseña, String correo, String celular) throws Exception{
+    public void registrarUsuario(String nombreUsuario, String nombre, String contraseña, String correo, String celular) throws ExcepcionUsuarios{
         
         Optional<Usuario> optional = repositorioUsuario.findById(nombreUsuario);
         if(optional.isEmpty()){
+            if(contraseña.trim().length()<4){
+                throw new ExcepcionUsuarios("La contrasena debe tener mas de 3 letras");
+            }
             //Guardar usuario
-        Usuario u = new Usuario(nombreUsuario, nombre, contraseña, correo, celular);
-        repositorioUsuario.save(u);
+            Usuario u = new Usuario(nombreUsuario, nombre, contraseña, correo, celular);
+            repositorioUsuario.save(u);
         } else {
-            throw new Exception("Nombre de usuario ya existe");
+            throw new ExcepcionUsuarios("Nombre de usuario ya existe");
         }
         return;
     }
-
+/* 
     public void seguirUsuario(Usuario uActual, String nombreSeguir) throws Exception{
         // 1. El Usuario Inicia sesión.
         if( !uActual.isLog() ){
@@ -112,14 +116,6 @@ public class CasosDeUsoUsuarios {
         }
     }
 
-    public void realizarComentario(){
-
-    }
-
-    public void realizarCalificacion(){
-        
-    }
-
     private boolean obtenerDecisionUsuario(String mensaje) {
         Scanner scanner = new Scanner(System.in);
 
@@ -128,6 +124,7 @@ public class CasosDeUsoUsuarios {
 
         String decision = scanner.nextLine().toUpperCase();
 
+        scanner.close();
         return decision.equals("S");
     }
     
@@ -138,5 +135,10 @@ public class CasosDeUsoUsuarios {
         System.out.println("Nombre: " + usuario.getNombre());
         // Add other details you want to display
     }
+*/
+    public void realizarComentario(){
+
+    }
+
 
 }
