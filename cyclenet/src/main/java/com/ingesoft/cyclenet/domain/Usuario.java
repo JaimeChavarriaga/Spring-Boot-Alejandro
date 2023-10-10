@@ -34,13 +34,13 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     protected ArrayList<Calificacion> calificaciones;
-
+    /*
     @OneToMany(mappedBy = "usuario")
     protected ArrayList<Usuario> seguidos;
 
     @OneToMany(mappedBy = "usuario")
     protected ArrayList<Usuario> seguidores;
-
+ */
     public Usuario(String nombreUsuario, String nombre, String contraseña, String correo, String celular){
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
@@ -52,8 +52,10 @@ public class Usuario {
         this.calificaciones = new ArrayList<>();
         this.comentarios = new ArrayList<>();
         this.publicaciones = new ArrayList<>();
+        /* 
         this.seguidos = new ArrayList<>();
         this.seguidores = new ArrayList<>();
+        */
     }
 
 }

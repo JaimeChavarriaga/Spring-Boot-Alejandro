@@ -11,7 +11,6 @@ import java.util.List;
 public interface RepositorioUsuario 
 extends JpaRepository<Usuario, String>
 {
-
     Usuario getUsuarioLogeado();
     
     List<Usuario> findByNombreUsuario(String nombreUsuario);

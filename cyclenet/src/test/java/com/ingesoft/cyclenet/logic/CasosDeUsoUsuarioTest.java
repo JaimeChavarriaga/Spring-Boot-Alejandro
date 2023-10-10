@@ -67,7 +67,7 @@ public class CasosDeUsoUsuarioTest {
             casosDeUsoUsuarios.registrarUsuario("Jaime","Jaime Lombo","Gola123","juan@hola.net","31565431");
 
             //assert
-            List<Usuario> usuariosConNombreJaime = repositorioUsuario.findById("Jaime");
+            List<Usuario> usuariosConNombreJaime = repositorioUsuario.findByNombreUsuario("Jaime");
             if(usuariosConNombreJaime.size() == 0){
                 fail("No se grabo el coso");
             }
@@ -107,15 +107,12 @@ public class CasosDeUsoUsuarioTest {
             casosDeUsoUsuarios.registrarUsuario("Jaime","Jaime Lombo","l2","juan@hola.net","31565431");
         
             //Assert
-            fail("Dejo grabar usuario con una contrasena de menos de 5 letra    s");
-
+            fail("Dejo grabar usuario con una contrasena de menos de 5 letras");
 
         } catch (ExcepcionUsuarios e) {
             // TODO: handle exception
             fail("OK");
         }
-
-
     }
 
     //Clean up
