@@ -2,6 +2,7 @@ package com.ingesoft.cyclenet.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +33,6 @@ public class Comentario {
     protected Usuario usuario;
 
     @OneToMany(mappedBy = "comentario")
-    protected ArrayList<Calificacion> calificaciones;
+    protected List<Calificacion> calificaciones = new ArrayList<>();
 
 }

@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.ingesoft.cyclenet.dataAccess.RepositorioPublicacion;
 import com.ingesoft.cyclenet.dataAccess.RepositorioUsuario;
 import com.ingesoft.cyclenet.domain.Usuario;
-
 
 
 @SpringBootTest
@@ -28,31 +28,33 @@ public class CasosDeUsoUsuarioTest {
     
     @Autowired
     protected RepositorioUsuario repositorioUsuario;
-
+    @Autowired
+    protected RepositorioPublicacion repositorioPublicacion;
+/* 
     //Arrange
     @BeforeAll
     public void prepararAmbienteDeTodaLaSuite(){
         System.out.println("Antes de todas la pruebas");
         System.out.println();
-    }
+    }*/
     
     @BeforeEach
     public void prepararAmbienteDePruebas(){
         System.out.println("Antes de cada prueba");
         System.out.println();
+        repositorioPublicacion.deleteAll();
     }
-
 
     //Casos de uso
     @Test
     public void pruebaLogin(){
         try {
             casosDeUsoUsuarios.iniciarSesion("X", "Y");
-                
+            fail("Inicio sesion");
+            assertEquals(1, 0, "Fallo2");                 
         } catch (Exception e) {
             // TODO: handle exception
-            fail("Fallo");
-            assertEquals(1, 0, "Fallo2");   
+            fail("No inicio sesion");
         }
     }
 
@@ -66,6 +68,7 @@ public class CasosDeUsoUsuarioTest {
             //act
             casosDeUsoUsuarios.registrarUsuario("Jaime","Jaime Lombo","Gola123","juan@hola.net","31565431");
 
+
             //assert
             List<Usuario> usuariosConNombreJaime = repositorioUsuario.findByNombreUsuario("Jaime");
             if(usuariosConNombreJaime.size() == 0){
@@ -74,7 +77,7 @@ public class CasosDeUsoUsuarioTest {
 
         } catch (ExcepcionUsuarios e) {
             // TODO: handle exception
-            fail("Se genero usuario y no deberia", e);
+            fail("No se genero >:( ");
         }
     }
 
@@ -85,7 +88,8 @@ public class CasosDeUsoUsuarioTest {
             //Arrange
             repositorioUsuario.deleteAll();
             Usuario u = new Usuario("jaime","jaime","jaime","jaime","jaime");
-            
+            repositorioUsuario.save(u);
+
             //Act
             casosDeUsoUsuarios.registrarUsuario("Jaime", "Jaime", "Jaime", "Jaime", "Jaime");
 
@@ -93,7 +97,7 @@ public class CasosDeUsoUsuarioTest {
             fail("Dejo grabar otro usuario con un login que ya existia");
         } catch (ExcepcionUsuarios e) {
             // TODO: handle exception
-            fail("OK");
+            fail("OK - No se registra usuario con login que ya existe");
         }
     }
 
@@ -111,7 +115,7 @@ public class CasosDeUsoUsuarioTest {
 
         } catch (ExcepcionUsuarios e) {
             // TODO: handle exception
-            fail("OK");
+            fail("OK - No dejo grabar usuario con contrasena de menos de lettras ");
         }
     }
 
@@ -122,10 +126,10 @@ public class CasosDeUsoUsuarioTest {
         System.out.println("Luego de cada prueba");
         System.out.println();
     }
-
+/* 
     @AfterAll
     public void despuesDeTodasLasPruebas(){
         System.out.println("Despues de todas las pruebas");
         System.out.println();
-    }
+    }*/
 }

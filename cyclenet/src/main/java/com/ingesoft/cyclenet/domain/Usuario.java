@@ -1,6 +1,7 @@
 package com.ingesoft.cyclenet.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,13 +28,13 @@ public class Usuario {
     protected boolean log = false;
 
     @OneToMany(mappedBy = "usuario")
-    protected ArrayList<Comentario> comentarios;
+    protected List<Comentario> comentarios = new ArrayList<>();
     
     @OneToMany(mappedBy = "usuario")
-    protected ArrayList<Publicacion> publicaciones;
+    protected List<Publicacion> publicaciones = new ArrayList<>();
 
     @OneToMany(mappedBy = "usuario")
-    protected ArrayList<Calificacion> calificaciones;
+    protected List<Calificacion> calificaciones = new ArrayList<>();
     /*
     @OneToMany(mappedBy = "usuario")
     protected ArrayList<Usuario> seguidos;
@@ -48,10 +49,6 @@ public class Usuario {
         this.correo = correo;
         this.celular = celular;
         this.log = true;
-
-        this.calificaciones = new ArrayList<>();
-        this.comentarios = new ArrayList<>();
-        this.publicaciones = new ArrayList<>();
         /* 
         this.seguidos = new ArrayList<>();
         this.seguidores = new ArrayList<>();

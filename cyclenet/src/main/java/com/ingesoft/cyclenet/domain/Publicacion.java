@@ -2,6 +2,7 @@ package com.ingesoft.cyclenet.domain;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Entity;
@@ -33,14 +34,13 @@ import lombok.Setter;
     protected Date fecha;
 
     @OneToMany(mappedBy = "publicacion")
-    protected ArrayList<Comentario> comentarios;
+    protected List<Comentario> comentarios = new ArrayList<>();;
 
     @ManyToOne
     protected Usuario usuario;
 
     @OneToMany(mappedBy = "publicacion")
-    protected ArrayList<Calificacion> calificaciones;
-
+    protected List<Calificacion> calificaciones = new ArrayList<>();
 
     // Constructor con parámetros sin ID
     public Publicacion(String mensaje, Boolean foto, Boolean lugar, Date fecha, Usuario usuario) {
@@ -49,9 +49,6 @@ import lombok.Setter;
         this.lugar = lugar;
         this.fecha = fecha;
         this.usuario = usuario;
-
-        this.calificaciones = new ArrayList<>();
-        this.comentarios = new ArrayList<>();
     }
 
 }
