@@ -1,0 +1,4 @@
+
+tasks:
+  - name: Configura Java
+    before: sdk default java 17.0.8.fx-zulu
