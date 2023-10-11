@@ -5,10 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,14 +28,16 @@ public class Comentario {
     protected Long id;
 
     protected String mensaje;
+
+    @Temporal(TemporalType.TIMESTAMP)
     protected Date fecha;
 
     @ManyToOne
-    protected Publicacion publicacion;
-    
-    @ManyToOne
     protected Usuario usuario;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    protected Publicacion publicacion;
+    
     @OneToMany(mappedBy = "comentario")
     protected List<Calificacion> calificaciones = new ArrayList<>();
 

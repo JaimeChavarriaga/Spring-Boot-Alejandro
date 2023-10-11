@@ -1,9 +1,7 @@
 package com.ingesoft.cyclenet.logic;
 
 import java.util.Optional;
-import java.util.Scanner;
 
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +13,7 @@ public class CasosDeUsoUsuarios {
     
     @Autowired
     protected RepositorioUsuario repositorioUsuario;
-
-    
+   
     
     public void iniciarSesion(String login, String password) throws Exception{
 
@@ -36,16 +33,18 @@ public class CasosDeUsoUsuarios {
     public void registrarUsuario(String nombreUsuario, String nombre, String contraseña, String correo, String celular) throws ExcepcionUsuarios{
         
         Optional<Usuario> optional = repositorioUsuario.findById(nombreUsuario);
-        if(optional.isEmpty()){
-            if(contraseña.trim().length()<4){
-                throw new ExcepcionUsuarios("La contrasena debe tener mas de 3 letras");
-            }
-            //Guardar usuario
-            Usuario u = new Usuario(nombreUsuario, nombre, contraseña, correo, celular);
-            repositorioUsuario.save(u);
-        } else {
+        if(!optional.isEmpty()){
             throw new ExcepcionUsuarios("Nombre de usuario ya existe");
         }
+
+        if(contraseña.trim().length()<4){
+            throw new ExcepcionUsuarios("La contrasena debe tener mas de 3 letras");
+        }
+        
+        //Guardar usuario
+        Usuario u = new Usuario(nombreUsuario, nombre, contraseña, correo, celular);
+        repositorioUsuario.save(u);
+        
         return;
     }
 /* 
