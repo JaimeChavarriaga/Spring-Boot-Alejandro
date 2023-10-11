@@ -2,3 +2,6 @@
 tasks:
   - name: Configura Java
     before: sdk default java 17.0.8.fx-zulu
+vscode:
+  extensions:
+    - redhat.java@1.21.0
